@@ -63,7 +63,11 @@ export default function BlogCard({ post, slug = "" }) {
               [{" "}
               {post.frontMatter.tags &&
                 post.frontMatter.tags.map((tag: string) => {
-                  return <span className="p-1">{tag}</span>;
+                  return (
+                    <span className="p-1" key={tag}>
+                      {tag}
+                    </span>
+                  );
                 })}{" "}
               ]
             </p>
@@ -92,7 +96,7 @@ export default function BlogCard({ post, slug = "" }) {
               [{" "}
               {post.frontMatter.tags &&
                 post.frontMatter.tags.map((tag: string) => {
-                  return <span>{tag}</span>;
+                  return <span key={tag}>{tag}</span>;
                 })}{" "}
               ]
             </p>

@@ -9,7 +9,7 @@ export default function Page({ params }) {
     <div className="flex flex-col gap-20">
       <BlogCard post={post} slug={params.slug} />
       <div className="flex flex-col gap-12">
-      <ReactMarkdown children={post.markdownBody} />
+        <ReactMarkdown>{post.markdownBody}</ReactMarkdown>
       </div>
     </div>
   );

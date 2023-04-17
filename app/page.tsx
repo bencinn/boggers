@@ -21,7 +21,7 @@ export default async function Home() {
               new Date(a.frontMatter.date).getTime()
           )
           .map((post) => {
-            return <BlogCard post={post} />;
+            return <BlogCard post={post} key={post} />;
           })}
     </div>
   );
