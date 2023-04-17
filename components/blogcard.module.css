@@ -1,0 +1,21 @@
+.cardParent {
+  perspective: 1500px;
+}
+
+.card {
+  font-weight: bold;
+  box-shadow: 0 1px 5px #00000099;
+  height: 200px;
+  position: relative;
+
+  transition-duration: 300ms;
+  transition-property: transform, box-shadow;
+  transition-timing-function: ease-out;
+  transform: rotate3d(0);
+  z-index: 0;
+}
+
+.card:hover {
+  transition-duration: 150ms;
+  box-shadow: 0 5px 20px 5px #00000044;
+}
