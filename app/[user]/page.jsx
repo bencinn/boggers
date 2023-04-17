@@ -1,14 +1,9 @@
+import { getAllPostsWithFrontMatter } from "@/lib/posts";
 import BlogCard from "@/components/blogcard";
-import { getAllPostsWithFrontMatter, getUserLists } from "@/lib/posts";
-import path from "path";
-import Link from "next/link";
+import { join } from "path";
 
-export default async function Home() {
-  const user = getUserLists("blog-posts");
-  let posts = [];
-  for (let i = 0; i<user.length; i++){
-    posts = posts.concat(getAllPostsWithFrontMatter(path.join("blog-posts", user[i])))
-  }
+export default async function Home({ params }) {
+  const posts = getAllPostsWithFrontMatter(join("blog-posts", params.user));
 
   return (
     <div className="flex gap-6 flex-col items-center">

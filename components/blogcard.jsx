@@ -6,7 +6,7 @@ import styles from "@/components/blogcard.module.css";
 
 // @ts-ignore
 
-export default function BlogCard({ post, slug = "" }) {
+export default function BlogCard({ post, path }) {
   let bounds;
   const inputRef = useRef();
   const [mouseLeft, setMouseLeft] = useState(false);
@@ -45,10 +45,9 @@ export default function BlogCard({ post, slug = "" }) {
   };
 
   useEffect(() => {});
-
   return (
     <>
-      <Link href={{ pathname: `/blog/${post.slug || slug}` }}>
+      <Link href={{ pathname: `${path}` }} onClick={console.log("This work holy hell")}>
         <div className="block md:hidden">
           <article
             className={
@@ -75,7 +74,7 @@ export default function BlogCard({ post, slug = "" }) {
         </div>
       </Link>
 
-      <Link href={{ pathname: `/blog/${post.slug || slug}` }}>
+      <Link href={{ pathname: `${path}` }} onClick={console.log("This work holy hell")}>
         <div
           className={styles.cardParent + " hidden md:block"}
           onMouseLeave={removeListener}
