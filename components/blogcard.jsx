@@ -62,7 +62,7 @@ export default function BlogCard({ post, slug = "" }) {
             <p className="w-10/12 break-words">
               [{" "}
               {post.frontMatter.tags &&
-                post.frontMatter.tags.map((tag: string) => {
+                post.frontMatter.tags.map((tag) => {
                   return (
                     <span className="p-1" key={tag}>
                       {tag}
@@ -95,7 +95,7 @@ export default function BlogCard({ post, slug = "" }) {
             <p className="flex flex-row gap-6">
               [{" "}
               {post.frontMatter.tags &&
-                post.frontMatter.tags.map((tag: string) => {
+                post.frontMatter.tags.map((tag) => {
                   return <span key={tag}>{tag}</span>;
                 })}{" "}
               ]
