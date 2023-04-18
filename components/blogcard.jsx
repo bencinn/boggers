@@ -45,6 +45,7 @@ export default function BlogCard({ post, path }) {
   };
 
   useEffect(() => {});
+  console.log(post.frontMatter);
   return (
     <>
       <Link href={{ pathname: `${path}` }} onClick={console.log("This work holy hell")}>
@@ -90,6 +91,9 @@ export default function BlogCard({ post, path }) {
           >
             <div>
               {post.frontMatter.title} - {post.frontMatter.description}
+            </div>
+            <div>
+            By
             </div>
             <p className="flex flex-row gap-6">
               [{" "}

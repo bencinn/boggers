@@ -51,7 +51,8 @@ export function getAllPostsWithFrontMatter(folderName: string) {
       {
         frontMatter: data,
         slug: postSlug.replace(".md", ""),
-        path: path.join(remove_first_occurrence(folderName, "blog-posts"), remove_last_occurrence(postSlug, ".md"))
+        path: path.join(remove_first_occurrence(folderName, "blog-posts"), remove_last_occurrence(postSlug, ".md")),
+        username: remove_first_occurrence(folderName, "blog-posts")
       },
       ...allPosts,
     ];
@@ -64,5 +65,42 @@ const index = userList.indexOf(".git");
 if (index > -1) { // only splice array when item is found
   userList.splice(index, 1); // 2nd parameter means remove one item only
 }
+const indexTwo = userList.indexOf("data");
+if (index > -1) { // only splice array when item is found
+  userList.splice(index, 1); // 2nd parameter means remove one item only
+}
+  // @ts-ignore
+  let returnData = []
+  for (let i = 0; i < userList.length; i++){
+    // @ts-ignore
+    returnData.concat(getUserData("blog-posts", userList[i]));
+  }
   return userList;
+}
+
+export function getUserListsWithData(folderName: string){
+  const userList = fs.readdirSync(path.join(root, folderName));
+const index = userList.indexOf(".git");
+if (index > -1) { // only splice array when item is found
+  userList.splice(index, 1); // 2nd parameter means remove one item only
+}
+const indexTwo = userList.indexOf("data");
+if (index > -1) { // only splice array when item is found
+  userList.splice(index, 1); // 2nd parameter means remove one item only
+}
+  // @ts-ignore
+  let returnData = []
+  for (let i = 0; i < userList.length; i++){
+    // @ts-ignore
+    returnData = returnData.concat(getUserData("blog-posts", userList[i]));
+  }
+  // @ts-ignore
+  return returnData;
+}
+
+export function getUserData(folderName: string, userName: string){
+  const data = fs.readFileSync(path.join(root, folderName, "data", userName));
+  let parsedData = JSON.parse(data.toString());
+  parsedData["uname"] = userName;
+  return parsedData;
 }
