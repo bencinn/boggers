@@ -14,7 +14,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="google-site-verification" content={process.env.GOOGLE_VERIFICATION} />
+        {/* Hard coded the value because why not */}
+        <meta name="google-site-verification" content="4QKJVUskzEp7Zt2EhYAdEwy8F-1Z_lvKRVRxFGKEU3U" />
       </head>
       <body>
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
